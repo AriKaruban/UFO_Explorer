@@ -18,3 +18,4 @@ import { MainMapComponent } from './main-map/main-map.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+//ng build --prod --base-href "https://OneKnowsAll.github.io/UFO_Explorer/"

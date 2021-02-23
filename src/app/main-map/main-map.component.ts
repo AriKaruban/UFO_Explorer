@@ -42,7 +42,44 @@ view
         view: this.view, // The view that provides access to the map's "streets" basemap
         nextBasemap: "streets" // Allows for toggling to the "hybrid" basemap
       });
-
+      const lyr = new FeatureLayer({
+        portalItem: {  // autocasts as new PortalItem()
+          id: "83be8ca54c5e4766a32089a166c5f51c"
+        },  // the first layer in the service is returned
+        popupEnabled:true,
+        popupTemplate:{
+          // autocasts as new PopupTemplate()
+          title: "{LongLabel}",
+          content: [
+            {
+              type: "fields",
+              fieldInfos: [
+                {
+                  fieldName: "OccuredDat",
+                  label: "Date"
+                },
+                {
+                  fieldName: "OccurredTi",
+                  label: "Time"
+                },
+                {
+                  fieldName: "duration",
+                  label: "Duration"
+                },
+                {
+                  fieldName: "shape_1",
+                  label: "UFO shape"
+                },
+                {
+                  fieldName: "Descriptio",
+                  label: "Description"
+                }
+              ]
+            }
+          ]
+        }
+      });
+      this.map.add(lyr)
       return this.view;
     } catch (error) {
       console.log("EsriLoader: ", error);
